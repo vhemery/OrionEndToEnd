@@ -15,32 +15,51 @@ function plot( bundesliga ){
 		position: position,
 		icon: {
 			path: google.maps.SymbolPath.CIRCLE,
-			fillOpacity: 0.5,
-			fillColor: '#00FF00',
-			strokeOpacity: 0.8,
-			strokeColor: '#00FF',
-			strokeWeight: 1.5,
-			scale: 6//pixels
+			fillOpacity: 0.4,
+			fillColor: '#FF0000',
+			strokeOpacity: 0.6,
+			strokeColor: '#FF0000',
+			strokeWeight: 2,
+			scale: 5//pixels
 		},
 		map:map
 	});
 }
 
+
+
 function showInfo(data) {
+	
+	var water = "#30acd2";
+	var landscape = "#95d1e1";
+	var maplabel = "#ffffff";
+	
+	var styles = [
+	  
+	  { "featureType": "landscape", "stylers": [ { "visibility": "simplified" } ] },
+	  { "featureType": "water", "stylers": [ { "visibility": "simplified" }, { "color": water } ] },
+	  { "featureType": "landscape", "stylers": [ { "color": landscape } ] },
+	  { "featureType": "road", "stylers": [ { "visibility": "off" } ] },
+	  { "featureType": "poi", "stylers": [ { "visibility": "off" } ] },
+	  { "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [ { "color": maplabel }, { "weight": 0.5 } ] },
+	  { "featureType": "administrative", "elementType": "labels", "stylers": [ { "color": maplabel }, { "weight": 0.1 } ] },
+	  { "featureType": "administrative.province", "stylers": [ { "visibility": "off" } ] }
+
+	];
 
     var mapOptions = {
 		mapTypeControlOptions: { mapTypeIds: [ 'Styled'] },
 		center: new google.maps.LatLng( 51.5167, 9.9167 ),
-		zoom: 16,
+		zoom: 5,
 		mapTypeId: 'Styled'
 	};
 
-	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
 	
-	var styledMapType = new google.maps.StyledMapType([], { name: 'bundesliga' });
+	var styledMapType = new google.maps.StyledMapType( styles, { name: 'bundesliga' } );
     map.mapTypes.set('Styled', styledMapType);  
     
-    data.PostList.elements.forEach( plot );
+    data.teams.elements.forEach( plot );
 }
 
 window.onload = function() {
