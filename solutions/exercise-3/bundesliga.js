@@ -2,11 +2,16 @@
 /*jslint browser:true*/
 
 var map;
-var popup;
 
 function plot( bundesliga ){
-	var position = new google.maps.LatLng ( bundesliga.latitude, bundesliga.longitude );	
-	var marker = new google.maps.Marker({
+
+	var lat= bundesliga.latitude;
+			
+	var longitude= bundesliga.longitude;
+		
+	var position = new google.maps.LatLng ( lat, longitude );	
+			
+	new google.maps.Marker({
 		position: position,
 		icon: {
 			path: google.maps.SymbolPath.CIRCLE,
@@ -18,16 +23,6 @@ function plot( bundesliga ){
 			scale: 5//pixels
 		},
 		map:map
-	});
-	
-	var contentString = '<div id="content">'+
-		'<h1 class="firstHeading">' + bundesliga.team + '</h1>'+
-		'<p>Web site: <a href="' + bundesliga.website + '">' + bundesliga.website + '</a>' +
-		'</p>' + 
-		'</div>';
-      google.maps.event.addListener(marker, 'click', function() {
-		popup.setContent(contentString);
-		popup.open(map, marker);
 	});
 }
 
@@ -63,8 +58,6 @@ function showInfo(data) {
 	
 	var styledMapType = new google.maps.StyledMapType( styles, { name: 'bundesliga' } );
     map.mapTypes.set('Styled', styledMapType);  
-    
-    popup = new google.maps.InfoWindow();
     
     data.teams.elements.forEach( plot );
 }
