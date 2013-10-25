@@ -3,13 +3,13 @@
 
 var map;
 
-function plot( bundesliga ){
-
-	var lat= bundesliga.latitude;
-			
-	var longitude= bundesliga.longitude;
+/**
+ * Plots information about a single team on a map
+ * @param {Object} team A single team from the Bundesliga database
+ */
+function plot( team ){
 		
-	var position = new google.maps.LatLng ( lat, longitude );	
+	var position = new google.maps.LatLng ( team.latitude, team.longitude);	
 			
 	new google.maps.Marker({
 		position: position,
@@ -25,7 +25,6 @@ function plot( bundesliga ){
 		map:map
 	});
 }
-
 
 
 function showInfo(data) {

@@ -1,11 +1,12 @@
 /*global google Tabletop*/
 /*jslint browser:true*/
 
-var map;
-var popup;
-
-function plot( bundesliga ){
-	var position = new google.maps.LatLng ( bundesliga.latitude, bundesliga.longitude );	
+/**
+ * Plots information about a single team on a map
+ * @param {Object} team A single team from the Bundesliga database
+ */
+function plot(team){
+	var position = new google.maps.LatLng ( team.latitude, team.longitude );	
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
@@ -17,22 +18,26 @@ function plot( bundesliga ){
 			strokeWeight: 2,
 			scale: 5//pixels
 		},
-		map:map
+		title: team.team,
+		map: this.map
 	});
 	
 	var contentString = '<div id="content">'+
-		'<h1 class="firstHeading">' + bundesliga.team + '</h1>'+
-		'<p>Web site: <a href="' + bundesliga.website + '">' + bundesliga.website + '</a>' +
+		'<h1 class="firstHeading">' + team.team + '</h1>'+
+		'<p>Web site: <a href="' + team.website + '">' + team.website + '</a>' +
 		'</p>' + 
 		'</div>';
-      google.maps.event.addListener(marker, 'click', function() {
-		popup.setContent(contentString);
-		popup.open(map, marker);
+	var that = this;
+	google.maps.event.addListener(marker, 'click', function() {
+		that.popup.setContent(contentString);
+		that.popup.open(that.map, marker);
 	});
 }
 
-
-
+/**
+ * Creates a map and plots data from the provided spreadsheet on the map.
+ * @param {Object} data The spreadsheet data object from tabletop.
+ */
 function showInfo(data) {
 	
 	var water = "#30acd2";
@@ -59,14 +64,17 @@ function showInfo(data) {
 		mapTypeId: 'Styled'
 	};
 
-	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
-	
+	//create and style the map
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
 	var styledMapType = new google.maps.StyledMapType( styles, { name: 'bundesliga' } );
     map.mapTypes.set('Styled', styledMapType);  
     
-    popup = new google.maps.InfoWindow();
+    //create popup window that will be used when clicking markers
+    var popup = new google.maps.InfoWindow();
     
-    data.teams.elements.forEach( plot );
+    //plot each team on the map
+    var that = {map: map, popup: popup};
+    data.teams.elements.forEach(plot, that);
 }
 
 window.onload = function() {
