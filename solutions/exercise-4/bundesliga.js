@@ -29,21 +29,6 @@ function buildContent( data ){
 function plot(team){
 	var position = new google.maps.LatLng ( team.latitude, team.longitude );
 	
-//	new google.maps.Marker({
-//		position: position,
-//		icon: {
-//			path: google.maps.SymbolPath.CIRCLE,
-//			fillOpacity: 0.4,
-//			fillColor: '#f68b18',
-//			strokeOpacity: 1,
-//			strokeColor: '#f68b18',
-//			strokeWeight: 2,
-//			scale: 8//pixels
-//		},
-//		title: team.team,
-//		map: this.map
-//	});
-	
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
