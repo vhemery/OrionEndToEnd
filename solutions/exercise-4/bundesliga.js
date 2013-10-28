@@ -27,21 +27,38 @@ function buildContent( data ){
  * @param {Object} team A single team from the Bundesliga database
  */
 function plot(team){
-	var position = new google.maps.LatLng ( team.latitude, team.longitude );	
+	var position = new google.maps.LatLng ( team.latitude, team.longitude );
+	
+//	new google.maps.Marker({
+//		position: position,
+//		icon: {
+//			path: google.maps.SymbolPath.CIRCLE,
+//			fillOpacity: 0.4,
+//			fillColor: '#f68b18',
+//			strokeOpacity: 1,
+//			strokeColor: '#f68b18',
+//			strokeWeight: 2,
+//			scale: 8//pixels
+//		},
+//		title: team.team,
+//		map: this.map
+//	});
+	
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
 			path: google.maps.SymbolPath.CIRCLE,
-			fillOpacity: 0.4,
-			fillColor: '#FF0000',
-			strokeOpacity: 0.6,
-			strokeColor: '#FF0000',
-			strokeWeight: 2,
-			scale: 5//pixels
+			fillOpacity: 0.9,
+			fillColor: '#ffffff',
+			strokeOpacity: 1,
+			strokeColor: '#455357',
+			strokeWeight: 3,
+			scale: 6//pixels
 		},
 		title: team.team,
 		map: this.map
 	});
+	
 
 	var that = this;
 	google.maps.event.addListener(marker, 'click', function() {
@@ -56,9 +73,9 @@ function plot(team){
  */
 function showInfo(data) {
 	
-	var water = "#30acd2";
-	var landscape = "#95d1e1";
-	var maplabel = "#ffffff";
+	var water = "#228db2";
+	var landscape = "#a4bfd1";
+	var maplabel = "#41778d";
 	
 	var styles = [
 	  
