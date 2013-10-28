@@ -1,6 +1,27 @@
 /*global google Tabletop*/
 /*jslint browser:true*/
 
+function buildContent( data ){
+
+	var twitterLogo = "	https://abs.twimg.com/a/1382598364/images/resources/twitter-bird-blue-on-white.png";
+	
+	var contentString = '<table class="table table-bordered">' +
+							'<tbody>' +
+								'<tr>' + 
+									'<th>Team</th>' + 
+									'<td><a href="' + data.website + '"</a>' + data.team + '</td>' +
+									'<td align="center"><a href="https://twitter.com/' + data.twitter + '"</a><img src=' + twitterLogo + ' alt="Twitter" height="20" width="20"</td>' + 
+								'</tr>' +
+								'<tr><th>Stadium</th><td colspan="2">' + data.stadium + '</td></tr>' +
+								'<tr><th>Capacity</th><td colspan="2">' + data.capacity + '</td></tr>' +
+								'<tr><th>Address</th><td colspan="2">' + data.address + '</td></tr>' +
+							'</tbody>' +
+						'<table>';
+	
+	return contentString;
+}
+
+
 /**
  * Plots information about a single team on a map
  * @param {Object} team A single team from the Bundesliga database
@@ -21,15 +42,10 @@ function plot(team){
 		title: team.team,
 		map: this.map
 	});
-	
-	var contentString = '<div id="content">'+
-		'<h1 class="firstHeading">' + team.team + '</h1>'+
-		'<p>Web site: <a href="' + team.website + '">' + team.website + '</a>' +
-		'</p>' + 
-		'</div>';
+
 	var that = this;
 	google.maps.event.addListener(marker, 'click', function() {
-		that.popup.setContent(contentString);
+		that.popup.setContent( buildContent(team) );
 		that.popup.open(that.map, marker);
 	});
 }
