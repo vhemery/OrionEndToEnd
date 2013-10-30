@@ -33,12 +33,12 @@ function plot(team){
 		position: position,
 		icon: {
 			path: google.maps.SymbolPath.CIRCLE,
-			fillOpacity: 0.9,
-			fillColor: '#ffffff',
-			strokeOpacity: 1,
-			strokeColor: '#455357',
+			fillOpacity: 0.7,
+			fillColor: team.primarycolor,
+			strokeOpacity: 0.9,
+			strokeColor: team.secondarycolor,
 			strokeWeight: 3,
-			scale: 6//pixels
+			scale: team.capacity/5000 //pixels
 		},
 		title: team.team,
 		map: this.map
