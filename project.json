@@ -1,1 +1,1 @@
-{"Name":"Bundesliga","Description":" A simple web application showing a map of Bundesliga home stadiums\n","Dependencies":[{"Type":"git","Location":"https://github.com/twbs/bootstrap.git","Name":"bootstrap at github.com"}]}
+{"Name":"Bundesliga","Description":" A simple web application showing a map of sports stadiums\n","Dependencies":[{"Type":"git","Location":"https://github.com/twbs/bootstrap.git","Name":"bootstrap at github.com"}]}
