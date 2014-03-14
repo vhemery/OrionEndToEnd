@@ -1,0 +1,8 @@
+---
+applications:
+- name: NHLStadiums
+  mem: 64M
+  instances: 1
+  path: .
+  host: NHLStadiums-${random-word}
+  command: node app.js
