@@ -3,11 +3,10 @@
 
 
 /**
- * buildContent information about a single team on a map
+ * Build content information about a single team on a map
  * @param {Object} team A single team from the Bundesliga database
  * 
  */
-
 function buildContent( data ){
 
 	var twitterLogo = "	https://abs.twimg.com/a/1382598364/images/resources/twitter-bird-blue-on-white.png";

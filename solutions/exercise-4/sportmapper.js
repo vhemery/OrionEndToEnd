@@ -37,8 +37,8 @@ function plot(team){
 			fillColor: team.primarycolor,
 			strokeOpacity: 0.9,
 			strokeColor: team.secondarycolor,
-			strokeWeight: 3,
-			scale: (team.capacity-15000) / 200 //pixels
+			strokeWeight: 2,
+			scale: 4 + parseInt(team.cups*1.5)  //pixels
 		},
 		title: team.team,
 		map: this.map
