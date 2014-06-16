@@ -42,7 +42,12 @@ function showInfo(data) {
 }
 
 window.onload = function() {
-    var spreadsheet = 'https://docs.google.com/spreadsheet/pub?key=0AnDA54eMM-5ydEJVaGNhaXR3d2RDblJ6ZEdfU3A0UXc&output=html';
-//    var spreadsheet = 'https://docs.google.com/spreadsheet/pub?key=0AhLgoEUzhCg_dEFKOS1kUG5iNDJrc2dSVGg0dWZBekE&output=html';
+   var spreadsheet = 'https://docs.google.com/spreadsheet/ccc?key=0Ah39DYKnfRHedDlxMmpaaVBuU21WVGliTjUyV3YwRkE&usp=sharing&output=html';
+    
+    //uncomment sheet below for Canadian version
+    //var spreadsheet = 'https://docs.google.com/spreadsheet/ccc?key=0AnDA54eMM-5ydEJVaGNhaXR3d2RDblJ6ZEdfU3A0UXc&usp=sharing&output=html';
+    //uncomment sheet below for German version
+    //var spreadsheet = 'https://docs.google.com/spreadsheet/ccc?key=0AhLgoEUzhCg_dEFKOS1kUG5iNDJrc2dSVGg0dWZBekE&usp=sharing&output=html';
+    
     Tabletop.init({ key: spreadsheet, callback: showInfo });
 };
