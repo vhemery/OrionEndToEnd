@@ -1,1 +1,1 @@
-{"Name":"NHL Stadiums","Description":"Stadiums of the National Hockey League\n","Dependencies":[{"Type":"git","Location":"https://github.com/twbs/bootstrap.git","Name":"bootstrap at github.com"}]}
+{"Name":"French Elite One Championship","Description":"Stadiums and teams of the Elite One Championship\n","Dependencies":[{"Type":"git","Location":"https://github.com/twbs/bootstrap.git","Name":"bootstrap at github.com"}]}

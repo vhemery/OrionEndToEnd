@@ -1,5 +1,5 @@
 {
-  "name": "ec2014server",
+  "name": "ecf2014server",
   "main": "app.js",
   "dependencies": {
     "express": "~4.0.0"
