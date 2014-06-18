@@ -1,0 +1,26 @@
+.title{
+	color: #555;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 20px;
+	width: 900px;
+	border-radius:3px;
+}
+
+.tablebackground{
+	padding-top:20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	background: whitesmoke;
+}
+
+table {
+	font-size: 12px;
+	background: white;
+}
+
+table a {
+	font-weight:bolder;
+}
